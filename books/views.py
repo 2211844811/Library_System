@@ -1,5 +1,6 @@
 from django.shortcuts import render
+from .models import Book
 
 def book_list(request):
-    # دالة بسيطة تقوم باستدعاء صفحة عرض الكتب التي صممتِها
-    return render(request, 'books/list.html')
+    books = Book.objects.all()
+    return render(request, 'books/book_list.html', {'books': books})
