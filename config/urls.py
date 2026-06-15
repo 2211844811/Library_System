@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from books.views import book_list  # استيراد الدالة التي أنشأتيها لعرض الكتب
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', book_list, name='book_list'),  # ربط الرابط الرئيسي مباشرة بصفحة قائمة الكتب
 ]
