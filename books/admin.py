@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Book
 
-# Register your models here.
+# تسجيل جدول الكتب في لوحة التحكم
+admin.site.register(Book)
