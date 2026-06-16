@@ -12,12 +12,17 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="{% url 'book_list' %}">الرئيسية</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'add_book' %}">إضافة كتاب</a></li>
+          {% if user.is_staff %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'add_book' %}">إضافة كتاب</a>
+    </li>
+{% endif %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'my_loans' %}">استعارتي</a></li>
                 </ul>
-                <form class="d-flex me-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="بحث عن كتاب..." aria-label="Search">
-                </form>
+               <form action="{% url 'book_list' %}" method="GET" class="d-flex">
+    <input class="form-control me-2" type="search" name="q" placeholder="بحث عن كتاب..." aria-label="Search" value="{{ request.GET.q }}">
+    <button class="btn btn-outline-light" type="submit">بحث</button>
+</form>
             </div>
         </div>
     </nav>
