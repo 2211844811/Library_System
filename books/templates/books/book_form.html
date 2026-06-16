@@ -1,0 +1,23 @@
+{% extends 'books/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">إضافة كتاب جديد</div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">عنوان الكتاب</label>
+                    <input type="text" class="form-control" name="title" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">اسم المؤلف</label>
+                    <input type="text" class="form-control" name="author" required>
+                </div>
+                <button type="submit" class="btn btn-success">حفظ</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
